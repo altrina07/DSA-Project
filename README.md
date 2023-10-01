@@ -1,20 +1,25 @@
-This project is based on the concept of BUBBLE SORT.
+def bubble_sort(arr):
+    n = len(arr)
+    
+    for i in range(n):
+        # Flag to optimize the algorithm
+        swapped = False
+        
+        for j in range(0, n-i-1):
+            # If the current element is greater than the next element, swap them
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = True
+        
+        # If no two elements were swapped in inner loop, the array is already sorted
+        if not swapped:
+            break
 
-Time Complexity Analysis:
+# Example input
+input_array = [5, 2, 9, 1, 5, 6]
 
-Bubble Sort has a time complexity of O(n^2) in the worst and average cases, where 'n' is the number of elements in the array.
-In the best case (when the array is already sorted), Bubble Sort has a time complexity of O(n), as it only requires a single pass to determine that no swaps are needed.
-Bubble Sort is an adaptive sorting algorithm, meaning its performance can be improved if the input data is nearly sorted.
+# Apply Bubble Sort
+bubble_sort(input_array)
 
-Stability:
-Bubble Sort is a stable sorting algorithm. It preserves the relative order of equal elements in the sorted array.
-
-Performance on Different Input Data:
-Bubble Sort performs well when the input data is already nearly sorted, as it makes fewer comparisons and swaps in such cases.
-It performs poorly on large or randomly ordered datasets because of its quadratic time complexity.
-
-Comparison with Merge Sort:
-Merge Sort has a time complexity of O(n log n) in all cases, making it more efficient than Bubble Sort for large datasets.
-Bubble Sort is generally not recommended for large datasets due to its poor time complexity.
-Merge Sort is a stable sort like Bubble Sort.
-Merge Sort is preferred when efficiency is critical, especially for large datasets, while Bubble Sort is suitable for small datasets or nearly sorted data where simplicity is more important than efficiency.
+# Sorted array
+print(input_array)
